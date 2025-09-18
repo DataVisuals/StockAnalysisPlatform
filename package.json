@@ -1,0 +1,63 @@
+{
+  "name": "stock-analysis-platform",
+  "version": "1.0.0",
+  "description": "Unified Stock Analysis Platform with Web, Mobile, and Backend",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "web",
+    "mobile",
+    "shared/types",
+    "shared/utils"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm run install:backend && npm run install:web && npm run install:mobile",
+    "install:backend": "cd backend && pip install -r requirements.txt",
+    "install:web": "cd web && npm install",
+    "install:mobile": "cd mobile && npm install",
+    "start:backend": "cd backend && source venv/bin/activate && uvicorn main:app --host 0.0.0.0 --port 8000 --reload",
+    "start:web": "cd web && npm start",
+    "start:mobile": "cd mobile && npm start",
+    "start:all": "concurrently \"npm run start:backend\" \"npm run start:web\" \"npm run start:mobile\"",
+    "build:web": "cd web && npm run build",
+    "build:mobile": "cd mobile && npm run build",
+    "test:backend": "cd backend && source venv/bin/activate && pytest",
+    "test:web": "cd web && npm test",
+    "test:mobile": "cd mobile && npm test",
+    "test:all": "npm run test:backend && npm run test:web && npm run test:mobile",
+    "lint:web": "cd web && npm run lint",
+    "lint:mobile": "cd mobile && npm run lint",
+    "lint:all": "npm run lint:web && npm run lint:mobile",
+    "type-check:web": "cd web && npm run type-check",
+    "type-check:mobile": "cd mobile && npm run type-check",
+    "type-check:all": "npm run type-check:web && npm run type-check:mobile",
+    "clean": "rm -rf node_modules web/node_modules mobile/node_modules backend/__pycache__ backend/.pytest_cache",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "stock-analysis",
+    "finance",
+    "react",
+    "react-native",
+    "fastapi",
+    "typescript",
+    "monorepo",
+    "mobile",
+    "web",
+    "api"
+  ],
+  "author": "Stock Analysis Platform",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0",
+    "python": ">=3.8.0"
+  }
+}
