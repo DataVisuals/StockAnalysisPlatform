@@ -10,6 +10,12 @@
 
 A unified, full-stack stock analysis platform with **web**, **mobile**, and **backend** components. Built with modern technologies and designed for scalability, maintainability, and cross-platform consistency.
 
+## 📸 Screenshot
+
+![Stock Analysis Platform](screenshot.png)
+
+*The Stock Analysis Platform web interface showing real-time stock data, interactive charts, forecasting, and AI-powered predictions.*
+
 ## 🏗️ Architecture
 
 ```
